@@ -16,18 +16,18 @@
       color: #ffffff;
     }
     .card-hover {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
     }
     .card-hover:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 24px -10px rgba(229, 125, 36, 0.35);
+      box-shadow: 0 12px 24px -10px rgba(229, 125, 36, 0.4);
       border-color: #E57D24;
     }
   </style>
 </head>
 <body class="bg-[#0b1320] text-gray-100 min-h-screen pb-16">
 
-  <!-- HEADER CON EL LOGO OFICIAL DE HENRI GONZALEZ (ESCUDO BLANCO) -->
+  <!-- HEADER CON LOGO OFICIAL DE HENRI GONZALEZ -->
   <header class="bg-[#0b1320]/95 backdrop-blur border-b border-gray-800 sticky top-0 z-50 shadow-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
       
@@ -60,7 +60,7 @@
         </div>
       </a>
 
-      <!-- BOTÓN DE WHATSAPP CON NÚMERO CORRECTO -->
+      <!-- BOTÓN DE WHATSAPP CON NÚMERO DIRECTO -->
       <a href="https://wa.me/50370021320?text=Hola%20Henri,%20quisiera%20cotizar%20un%20servicio%20de%20construcción" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 rounded-full flex items-center gap-2 transition duration-300 shadow-lg text-sm sm:text-base">
         <i class="fab fa-whatsapp text-xl"></i>
         <span>Cotizar: 7002-1320</span>
@@ -69,7 +69,7 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION CON NOMBRE Y LEMA OFICIAL -->
   <section class="relative bg-gradient-to-b from-[#121e30] to-[#0b1320] py-12 px-4 text-center border-b border-gray-800">
     <div class="max-w-4xl mx-auto">
       <span class="bg-orange-500/10 text-orange-400 border border-orange-500/30 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 inline-block">
@@ -92,48 +92,63 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE TRABAJOS DE ALBAÑILERÍA Y DESTACADOS (CON IMÁGENES CORREGIDAS) -->
+  <!-- SECCIÓN CON IMÁGENES + DIBUJOS TÉCNICOS SUPERPUESTOS -->
   <section class="max-w-7xl mx-auto px-4 py-12">
     <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 text-white border-b border-gray-800 pb-4">
-      Nuestros Servicios en Imágenes
+      Nuestros Servicios en Acción
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- TARJETA 1: ALBAÑILERÍA Y MUROS PERIMETRALES -->
+      <!-- TARJETA 1: ALBAÑILERÍA CON DIBUJOS SUPERPUESTOS -->
       <div class="bg-[#132238] border border-gray-800 rounded-xl overflow-hidden card-hover">
-        <div class="relative h-52 bg-slate-800 overflow-hidden">
+        <div class="relative h-56 bg-slate-800 overflow-hidden">
+          <!-- Foto real de Albañilería -->
           <img 
-            src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80" 
+            src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800" 
             alt="Albañilería y muros perimetrales" 
-            class="w-full h-full object-cover"
-            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center bg-gray-800 text-orange-400 p-4\'><i class=\'fas fa-cubes text-4xl mb-2\'></i><span class=\'font-bold\'>Albañilería y Muros</span></div>';"
+            class="w-full h-full object-cover opacity-85"
           >
+          <!-- Dibujos de Albañilería Vectoriales Superpuestos -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Dibujo de Plomada -->
+            <path d="M50 20 L50 80 M42 80 L58 80 L50 100 Z" stroke="#F97316" stroke-width="2.5" stroke-dasharray="4 2"/>
+            <!-- Dibujo de Palustre / Cuchara de Albañil -->
+            <path d="M320 140 L350 120 L370 150 L330 170 Z M330 170 L310 185" stroke="#FFFFFF" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+            <!-- Nivel de Mano -->
+            <rect x="20" y="160" width="100" height="20" rx="3" stroke="#F97316" stroke-width="2" fill="rgba(0,0,0,0.3)"/>
+            <circle cx="70" cy="170" r="4" fill="#F97316"/>
+          </svg>
           <span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-bold px-2.5 py-1 rounded">OBRA GRIS</span>
         </div>
         <div class="p-5">
           <h3 class="text-xl font-bold text-white mb-2">Muros Perimetrales y Paredes</h3>
-          <p class="text-gray-400 text-sm mb-4">Construcción sólida en bloque de cemento, ladrillo de obra y pegado estructurado con acabados resistentes.</p>
+          <p class="text-gray-400 text-sm mb-4">Construcción sólida en bloque de cemento, ladrillo de obra y pegado estructurado con acabados de primera.</p>
           <a href="https://wa.me/50370021320?text=Hola%20Henri,%20deseo%20cotizar%20un%20muro%20o%20trabajo%20de%20albañilería" target="_blank" class="text-orange-400 font-semibold text-sm hover:underline flex items-center gap-1">
             Cotizar Albañilería <i class="fas fa-arrow-right text-xs"></i>
           </a>
         </div>
       </div>
 
-      <!-- TARJETA 2: ESTRUCTURAS METÁLICAS Y TECHOS -->
+      <!-- TARJETA 2: ESTRUCTURAS METÁLICAS -->
       <div class="bg-[#132238] border border-gray-800 rounded-xl overflow-hidden card-hover">
-        <div class="relative h-52 bg-slate-800 overflow-hidden">
+        <div class="relative h-56 bg-slate-800 overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" 
-            alt="Estructuras metálicas y techos" 
-            class="w-full h-full object-cover"
-            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center bg-gray-800 text-orange-400 p-4\'><i class=\'fas fa-industry text-4xl mb-2\'></i><span class=\'font-bold\'>Estructuras Metálicas</span></div>';"
+            src="https://images.pexels.com/photos/159358/construction-site-build-construction-structure-159358.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Estructuras metálicas" 
+            class="w-full h-full object-cover opacity-85"
           >
+          <!-- Dibujos de Estructuras / Soldadura Superpuestos -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 30 L120 30 M30 30 L30 150 M120 30 L120 150 M30 30 L120 150 M120 30 L30 150" stroke="#38BDF8" stroke-width="2" stroke-dasharray="3 3"/>
+            <circle cx="280" cy="80" r="15" stroke="#F97316" stroke-width="2"/>
+            <path d="M280 60 L280 100 M260 80 L300 80" stroke="#F97316" stroke-width="1.5"/>
+          </svg>
           <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded">ESTRUCTURAS</span>
         </div>
         <div class="p-5">
           <h3 class="text-xl font-bold text-white mb-2">Estructuras Metálicas y Techos</h3>
-          <p class="text-gray-400 text-sm mb-4">Fabricación de techos industriales, estructuras para bodegas, soldadura pesada y soportes.</p>
+          <p class="text-gray-400 text-sm mb-4">Techos industriales, bodegas, soldadura pesada, soportes y mezanines metálicos.</p>
           <a href="https://wa.me/50370021320?text=Hola%20Henri,%20deseo%20cotizar%20una%20estructura%20metálica" target="_blank" class="text-orange-400 font-semibold text-sm hover:underline flex items-center gap-1">
             Cotizar Estructura <i class="fas fa-arrow-right text-xs"></i>
           </a>
@@ -142,18 +157,24 @@
 
       <!-- TARJETA 3: REMODELACIÓN Y ACABADOS -->
       <div class="bg-[#132238] border border-gray-800 rounded-xl overflow-hidden card-hover md:col-span-2 lg:col-span-1">
-        <div class="relative h-52 bg-slate-800 overflow-hidden">
+        <div class="relative h-56 bg-slate-800 overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" 
-            alt="Remodelación de cocinas y acabados" 
-            class="w-full h-full object-cover"
-            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center bg-gray-800 text-orange-400 p-4\'><i class=\'fas fa-sink text-4xl mb-2\'></i><span class=\'font-bold\'>Remodelaciones</span></div>';"
+            src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Remodelación de cocinas y finos acabados" 
+            class="w-full h-full object-cover opacity-85"
           >
+          <!-- Dibujos de Azulejos y Cotas Superpuestos -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="260" y="20" width="110" height="110" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <path d="M315 20 L315 130 M260 75 L370 75" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <path d="M260 150 L370 150 M260 145 L260 155 M370 145 L370 155" stroke="#F97316" stroke-width="2"/>
+            <text x="315" y="168" fill="#F97316" font-size="12" font-weight="bold" text-anchor="middle">Acabados Finos</text>
+          </svg>
           <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded">ACABADOS FINOS</span>
         </div>
         <div class="p-5">
-          <h3 class="text-xl font-bold text-white mb-2">Remodelación y Cerámica</h3>
-          <p class="text-gray-400 text-sm mb-4">Instalación de cerámica, porcelanato, gabinetes, granito, tablaroca y pintura para baños y cocinas.</p>
+          <h3 class="text-xl font-bold text-white mb-2">Remodelación, Cocinas y Cerámica</h3>
+          <p class="text-gray-400 text-sm mb-4">Instalación de cerámica, porcelanato, pantris, granito, tablaroca y pintura de alta calidad.</p>
           <a href="https://wa.me/50370021320?text=Hola%20Henri,%20deseo%20cotizar%20una%20remodelación" target="_blank" class="text-orange-400 font-semibold text-sm hover:underline flex items-center gap-1">
             Cotizar Remodelación <i class="fas fa-arrow-right text-xs"></i>
           </a>
@@ -165,7 +186,7 @@
 
   <!-- CATÁLOGO COMPLETO DE SERVICIOS -->
   <section class="max-w-7xl mx-auto px-4 py-8">
-    <h3 class="text-xl font-bold text-gray-300 mb-6 text-center">Todos los Servicios de Henri Gonzalez:</h3>
+    <h3 class="text-xl font-bold text-gray-300 mb-6 text-center">Todos los Servicios Especializados:</h3>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       <div class="bg-[#132238] p-4 rounded-lg text-center border border-gray-800">
         <i class="fas fa-cubes text-orange-400 text-2xl mb-2"></i>
