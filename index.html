@@ -1,349 +1,403 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henri Gonzalez - Experto en Construcción y Renovación Total | El Salvador</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Servicios Profesionales de Construcción y Seguridad</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brandNavy: '#0F2027',
-                        brandBlue: '#203A43',
-                        brandSlate: '#2C5364',
-                        brandAccent: '#E65100',
-                        brandAccentHover: '#EF6C00',
-                        whatsapp: '#25D366',
-                        whatsappHover: '#1DA851'
-                    }
-                }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        /* Continuous sketch animation loop on SVG strokes */
+        @keyframes dash {
+            0% {
+                stroke-dashoffset: 1000;
+            }
+            50% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: -1000;
             }
         }
-    </script>
-    <style>
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(15, 32, 39, 0.94) 0%, rgba(32, 58, 67, 0.88) 100%), 
-                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1200&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(0.98); }
+            50% { opacity: 0.9; transform: scale(1.02); }
         }
-        .pulse-whatsapp {
-            animation: pulse-ring 2s infinite;
+
+        @keyframes signalPulse {
+            0% { r: 2px; opacity: 1; }
+            100% { r: 18px; opacity: 0; }
         }
-        @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+
+        .sketch-line {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: dash 6s linear infinite;
+        }
+
+        .sketch-slow {
+            stroke-dasharray: 400;
+            animation: dash 10s ease-in-out infinite alternate;
+        }
+
+        .card-container {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-container:hover {
+            transform: translateY(-8px);
+        }
+
+        .glow-effect {
+            animation: pulseGlow 4s infinite;
+        }
+
+        /* Glassmorphism custom styling */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Wave signal animation for security camera */
+        .signal-wave {
+            animation: signalPulse 2s infinite;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-brandAccent selection:text-white">
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-emerald-500 selection:text-white">
 
-    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-40 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 bg-gradient-to-br from-brandNavy to-brandBlue text-white flex items-center justify-center font-black text-xl rounded-xl shadow-md group-hover:scale-105 transition transform">
-                    HG
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-helmet-safety"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-gray-900 text-base sm:text-lg leading-none tracking-tight">HENRI GONZALEZ</h1>
-                    <span class="text-[10px] sm:text-xs text-brandAccent font-bold uppercase tracking-widest block mt-0.5">Construcción & Renovación</span>
+                    <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">PRO-CONSTRUC</span>
+                    <span class="block text-xs text-emerald-400 font-medium tracking-widest uppercase">Especialistas Integrales</span>
                 </div>
-            </a>
-            
-            <a href="https://wa.me/50370021320?text=Hola%20Henri,%20vi%20tu%20Landing%20Page%20y%20deseo%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n/remodelaci%C3%B3n." 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="inline-flex items-center space-x-2 bg-whatsapp hover:bg-whatsappHover text-white font-bold text-sm py-2.5 px-5 rounded-full transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                <i class="fab fa-whatsapp text-lg"></i>
-                <span class="hidden sm:inline">Cotizar por WhatsApp</span>
-                <span class="sm:hidden">Cotizar</span>
-            </a>
+            </div>
+
+            <!-- Quick Contacts -->
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#servicios" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Servicios</a>
+                <a href="#nosotros" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Nosotros</a>
+                <a href="#galeria" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Proyectos</a>
+                <a href="https://wa.me/50300000000?text=Hola,%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" 
+                   target="_blank"
+                   class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-full text-sm transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Cotizar Ahora</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <section class="hero-overlay min-h-[90vh] flex items-center pt-28 pb-16 text-white relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            
-            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-6">
-                <span class="w-2.5 h-2.5 rounded-full bg-brandAccent animate-ping"></span>
-                <span class="text-xs sm:text-sm font-semibold tracking-wide uppercase text-gray-200">
-                    Servicios de Construcción en El Salvador
-                </span>
-            </div>
-
-            <h2 class="text-3xl sm:text-5xl md:text-6xl font-black leading-tight mb-6 tracking-tight">
-                Construcción, Remodelación y Estructuras Metálicas
-            </h2>
-
-            <p class="text-base sm:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-                Especialista en trabajo sólido con <strong class="font-semibold text-white">bloque de cemento, ladrillo, estructuras metálicas, acabados finos y cámaras de seguridad</strong>. Calidad profesional garantizada.
+    <!-- Hero Banner with Interactive Overlay Cards (Blueprint Style) -->
+    <section class="relative py-12 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <!-- Text Header Box -->
+        <div class="text-center max-w-4xl mx-auto mb-10">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">
+                <i class="fa-solid fa-circle-check text-[10px]"></i>
+                Calidad Profesional Garantizada
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Especialistas en trabajo sólido y acabados de alta precisión
+            </h1>
+            <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Expertos en <span class="text-white font-semibold">bloques de cemento, ladrillo, estructuras metálicas, acabados finos</span> e instalación integral de <span class="text-white font-semibold">cámaras de seguridad</span>.
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto sm:max-w-none">
-                <a href="https://wa.me/50370021320?text=Hola%20Henri,%20vi%20tu%20Landing%20Page%20y%20deseo%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n/remodelaci%C3%B3n." 
+            <!-- Call to Action Buttons -->
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/50300000000?text=Hola,%20quisiera%20cotizar%20un%20proyecto" 
                    target="_blank"
-                   rel="noopener noreferrer"
-                   class="w-full sm:w-auto bg-whatsapp hover:bg-whatsappHover text-white font-extrabold text-lg px-8 py-4 rounded-full shadow-2xl flex items-center justify-center space-x-3 transition transform hover:scale-105">
-                    <i class="fab fa-whatsapp text-2xl"></i>
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-base font-bold px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
                     <span>Cotizar por WhatsApp</span>
                 </a>
                 <a href="#servicios" 
-                   class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-lg px-8 py-4 rounded-full transition text-center backdrop-blur-sm">
-                    Ver Todos los Servicios
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 text-base font-semibold px-8 py-4 rounded-2xl border border-slate-700/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5">
+                    <span>Ver Todos los Servicios</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
                 </a>
             </div>
+        </div>
 
-            <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 border-t border-white/10 pt-8 max-w-4xl mx-auto">
-                <div class="p-3 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-cubes text-brandAccent text-2xl mb-2"></i>
-                    <p class="text-xs sm:text-sm font-medium text-gray-200">Bloque y Concreto</p>
+        <!-- Interactive Service Cards Carousel Banner -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-8">
+
+            <!-- Card 1: Albañilería y Bloques -->
+            <div class="card-container group relative rounded-3xl overflow-hidden glass-card h-80 sm:h-96 shadow-2xl">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80" 
+                     alt="Trabajos de Albañilería" 
+                     class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                <!-- Animated Blueprint SVG Overlay (Masonry Sketches) -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-cyan-400/80" fill="none" stroke-width="1.8" viewBox="0 0 300 400">
+                    <!-- Brick Trowel Sketch -->
+                    <g transform="translate(20, 30)">
+                        <path class="sketch-line" d="M10,40 L35,20 L65,25 L45,45 Z" stroke-linecap="round"/>
+                        <path class="sketch-slow" d="M35,20 L35,5 L50,5" stroke-linecap="round"/>
+                    </g>
+                    <!-- Plumb Line Sketch -->
+                    <g transform="translate(140, 20)">
+                        <line x1="20" y1="0" x2="20" y2="70" class="sketch-slow" stroke-dasharray="4,4"/>
+                        <polygon points="20,90 12,70 28,70" class="sketch-line" fill="rgba(34,211,238,0.1)"/>
+                    </g>
+                    <!-- Brick Pattern Overlay -->
+                    <g transform="translate(180, 260)" opacity="0.6">
+                        <rect x="0" y="0" width="80" height="40" class="sketch-line" rx="2"/>
+                        <line x1="40" y1="0" x2="40" y2="40" class="sketch-slow"/>
+                        <rect x="-20" y="40" width="80" height="40" class="sketch-line" rx="2"/>
+                        <rect x="60" y="40" width="80" height="40" class="sketch-line" rx="2"/>
+                    </g>
+                </svg>
+
+                <!-- Card Content -->
+                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 backdrop-blur-md">
+                            Estructura Base
+                        </span>
+                        <div class="w-10 h-10 rounded-full bg-slate-900/80 flex items-center justify-center text-cyan-400 border border-cyan-500/30">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Albañilería y Paredes</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2">Construcción sólida de muros con bloque de cemento, ladrillo visto y cimentaciones reforzadas.</p>
+                    </div>
                 </div>
-                <div class="p-3 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-shield-alt text-brandAccent text-2xl mb-2"></i>
-                    <p class="text-xs sm:text-sm font-medium text-gray-200">Garantía Real de Obra</p>
+            </div>
+
+            <!-- Card 2: Estructuras Metálicas -->
+            <div class="card-container group relative rounded-3xl overflow-hidden glass-card h-80 sm:h-96 shadow-2xl">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" 
+                     alt="Estructuras Metálicas" 
+                     class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                <!-- Animated Blueprint SVG Overlay (Steel Girders Sketches) -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-amber-400/80" fill="none" stroke-width="1.8" viewBox="0 0 300 400">
+                    <!-- Steel Beam Lines -->
+                    <g transform="translate(15, 40)">
+                        <line x1="0" y1="0" x2="270" y2="120" class="sketch-line"/>
+                        <line x1="0" y1="20" x2="270" y2="140" class="sketch-line"/>
+                        <!-- Cross braces -->
+                        <line x1="30" y1="13" x2="60" y2="47" class="sketch-slow"/>
+                        <line x1="60" y1="26" x2="90" y2="60" class="sketch-slow"/>
+                        <line x1="90" y1="40" x2="120" y2="73" class="sketch-slow"/>
+                    </g>
+                    <!-- Weld Spark Icon Sketch -->
+                    <g transform="translate(200, 220)">
+                        <circle cx="20" cy="20" r="15" class="sketch-line" stroke-dasharray="4,4"/>
+                        <path d="M20,0 L20,40 M0,20 L40,20 M5,5 L35,35" class="sketch-slow"/>
+                    </g>
+                </svg>
+
+                <!-- Card Content -->
+                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-md">
+                            Alto Rendimiento
+                        </span>
+                        <div class="w-10 h-10 rounded-full bg-slate-900/80 flex items-center justify-center text-amber-400 border border-amber-500/30">
+                            <i class="fa-solid fa-industry"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Estructuras Metálicas</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2">Fabricación y montaje de vigas, cubiertas, portones y techados industriales de alta resistencia.</p>
+                    </div>
                 </div>
-                <div class="p-3 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-hammer text-brandAccent text-2xl mb-2"></i>
-                    <p class="text-xs sm:text-sm font-medium text-gray-200">Estructuras Metálicas</p>
+            </div>
+
+            <!-- Card 3: Acabados Finos -->
+            <div class="card-container group relative rounded-3xl overflow-hidden glass-card h-80 sm:h-96 shadow-2xl">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
+                     alt="Acabados Interiores Finos" 
+                     class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                <!-- Animated Blueprint SVG Overlay (Interior Design Sketches) -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-emerald-400/80" fill="none" stroke-width="1.8" viewBox="0 0 300 400">
+                    <!-- Modern Kitchen Island outline sketch -->
+                    <g transform="translate(60, 160)">
+                        <rect x="0" y="0" width="180" height="90" rx="6" class="sketch-line"/>
+                        <rect x="20" y="-30" width="140" height="30" rx="2" class="sketch-slow"/>
+                        <line x1="0" y1="45" x2="180" y2="45" class="sketch-slow"/>
+                    </g>
+                    <!-- Measurement Arrows -->
+                    <g transform="translate(60, 265)">
+                        <line x1="0" y1="0" x2="180" y2="0" class="sketch-line" marker-end="url(#arrow)"/>
+                        <path d="M0,-5 L0,5 M180,-5 L180,5" stroke-width="1.5"/>
+                    </g>
+                </svg>
+
+                <!-- Card Content -->
+                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                            Detalles Exclusivos
+                        </span>
+                        <div class="w-10 h-10 rounded-full bg-slate-900/80 flex items-center justify-center text-emerald-400 border border-emerald-500/30">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Acabados Finos</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2">Repello pulido, empaste, pintura, pisos cerámicos y remodelaciones residenciales de lujo.</p>
+                    </div>
                 </div>
-                <div class="p-3 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5">
-                    <i class="fas fa-video text-brandAccent text-2xl mb-2"></i>
-                    <p class="text-xs sm:text-sm font-medium text-gray-200">Cámaras y Monitoreo</p>
+            </div>
+
+            <!-- Card 4: Cámaras de Seguridad & CCTV -->
+            <div class="card-container group relative rounded-3xl overflow-hidden glass-card h-80 sm:h-96 shadow-2xl">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" 
+                     alt="Instalación de Cámaras de Seguridad" 
+                     class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                <!-- Animated Blueprint SVG Overlay (Security Camera Sketches) -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-indigo-400/80" fill="none" stroke-width="1.8" viewBox="0 0 300 400">
+                    <!-- CCTV Camera Dome sketch -->
+                    <g transform="translate(180, 40)">
+                        <path d="M10,10 L50,10 L40,30 L20,30 Z" class="sketch-line"/>
+                        <circle cx="30" cy="45" r="20" class="sketch-line"/>
+                        <circle cx="30" cy="45" r="8" fill="rgba(129,140,248,0.2)"/>
+                        <!-- Signal Waves -->
+                        <path d="M-10,30 Q-20,45 -10,60" class="sketch-slow"/>
+                        <path d="M-20,20 Q-35,45 -20,70" class="sketch-slow"/>
+                    </g>
+                    <!-- Monitor Screen Outline -->
+                    <g transform="translate(30, 200)">
+                        <rect x="0" y="0" width="140" height="90" rx="4" class="sketch-line"/>
+                        <line x1="40" y1="90" x2="100" y2="90" class="sketch-line"/>
+                        <line x1="70" y1="90" x2="70" y2="110" class="sketch-line"/>
+                        <!-- Grid lines representing cameras -->
+                        <line x1="70" y1="0" x2="70" y2="90" class="sketch-slow" stroke-dasharray="2,2"/>
+                        <line x1="0" y1="45" x2="140" y2="45" class="sketch-slow" stroke-dasharray="2,2"/>
+                    </g>
+                </svg>
+
+                <!-- Card Content -->
+                <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 backdrop-blur-md">
+                            Protección 24/7
+                        </span>
+                        <div class="w-10 h-10 rounded-full bg-slate-900/80 flex items-center justify-center text-indigo-400 border border-indigo-500/30">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Cámaras de Seguridad</h3>
+                        <p class="text-xs text-slate-300 line-clamp-2">Sistemas de CCTV IP, monitoreo remoto desde celular y cableado estructurado profesional.</p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="servicios" class="py-20 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            
-            <div class="text-center mb-16">
-                <span class="text-brandAccent font-bold text-xs uppercase tracking-widest block mb-2">Catálogo Completo</span>
-                <h3 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Servicios de Construcción e Instalación</h3>
-                <div class="w-16 h-1 bg-brandAccent mx-auto mt-4 rounded-full"></div>
+    <!-- Detailed Services Section -->
+    <section id="servicios" class="py-16 bg-slate-900/60 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-2xl sm:text-4xl font-bold text-white">Nuestras Soluciones de Construcción</h2>
+                <p class="mt-3 text-slate-400 text-sm sm:text-base">Ofrecemos soporte técnico especializado en cada etapa de su obra o proyecto de remodelación.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-
-                <!-- Servicio 1 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-border-all"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Muros Perimetrales y Paredes</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Levantamiento de muros perimetrales de protección, paredes de bloque de cemento, repello, cernido y cimentaciones sólidas.
-                        </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Item 1 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-emerald-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-trowel-bricks"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Obra Gris y Albañilería</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Levantamiento de muros en bloque y ladrillo</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Soleras, columnas y fundaciones de concreto</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Sisa perfeccionada y repelado de paredes</li>
+                    </ul>
                 </div>
 
-                <!-- Servicio 2 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-bath"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Remodelación de Cocinas y Baños</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Transformación total de espacios con acabados modernos, reemplazo de tuberías, enchapado de azulejo y sanitarios.
-                        </p>
+                <!-- Service Item 2 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-amber-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-warehouse"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Estructuras y Soldadura</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> Techados de perlin y lámina galvanizada</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> Mezzanines y plataformas metálicas</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> Portones, verjas y cerramientos perimetrales</li>
+                    </ul>
                 </div>
 
-                <!-- Servicio 3 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-paint-roller"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Pintura y Diseños</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Aplicación de pintura residencial y comercial para interiores y exteriores. Preparación y sellado de paredes.
-                        </p>
+                <!-- Service Item 3 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-indigo-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-th"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Instalación de Cerámica</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Pega de piso cerámico, porcelanato, azulejos decorativos y rectificados para interiores, cocheras y terrazas.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 5 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Tablaroca / Drywall</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Instalación de divisiones livianas, paredes falsas, nichos decorativos y muebles empotrados en tablaroca.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 6 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-grip-lines"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Cielo Falso Tradicional y Ejecutivo</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Instalación de cielo falso reticulado comercial o residencial de suspensión vista y modelos ejecutivos lisos.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 7 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-sink"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Gabinetes, Pantris y Granito</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Armado e instalación de gabinetes para cocina, cubiertas de granito natural, cuarzo y acabados en porcelanato.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 8 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-door-open"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Instalación de Puertas y Ventanas</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Montaje de puertas de madera y metal, así como marcos de aluminio y ventanas francesas para casas u oficinas.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 9 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-2xl mb-5 font-bold">
-                            <i class="fas fa-warehouse"></i>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Estructuras Metálicas y Techos</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Fabricación de estructuras de acero, techos industriales, galpones, bodegas y reparación de filtraciones de agua.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Servicio 10 -->
-                <div class="bg-white p-7 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-200/80 flex flex-col justify-between md:col-span-2 lg:col-span-3">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                        <div class="flex items-start space-x-5">
-                            <div class="w-14 h-14 bg-orange-50 text-brandAccent rounded-xl flex items-center justify-center text-3xl font-bold shrink-0">
-                                <i class="fas fa-video"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-900 mb-1">Cámaras de Seguridad y Sistemas CCTV</h4>
-                                <p class="text-gray-600 text-sm leading-relaxed max-w-2xl">
-                                    Instalación, cableado estructurado y configuración de cámaras de vigilancia HD para monitoreo remoto desde tu teléfono móvil. Protección integral para residencias y locales comerciales.
-                                </p>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/50370021320?text=Hola%20Henri,%20vi%20tu%20Landing%20Page%20y%20deseo%20cotizar%20un%20sistema%20de%20c%C3%A1maras%20de%20seguridad." 
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="w-full md:w-auto bg-brandNavy hover:bg-brandBlue text-white font-bold py-3 px-6 rounded-xl text-center text-sm transition shrink-0">
-                            Cotizar Seguridad
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <span class="text-brandAccent font-bold text-xs uppercase tracking-widest block mb-2">Compromiso y Calidad</span>
-                <h3 class="text-3xl font-black text-gray-900 tracking-tight">¿Por qué elegir a Henri Gonzalez?</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-14 h-14 bg-brandNavy text-brandAccent rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2 text-gray-900">Mano de Obra Calificada</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">Experiencia comprobada en procesos constructivos con normas de seguridad y resistencia.</p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-14 h-14 bg-brandNavy text-brandAccent rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2 text-gray-900">Presupuestos Claros</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">Cotizaciones detalladas sin costos ocultos ajustadas a las necesidades reales de tu proyecto.</p>
-                </div>
-
-                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div class="w-14 h-14 bg-brandNavy text-brandAccent rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h4 class="text-lg font-bold mb-2 text-gray-900">Trato Personalizado</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">Atención directa del maestro especialista para asegurar acabados Impecables.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Seguridad Electrónica</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Instalación de cámaras IP y analógicas HD</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Configuración para acceso remoto en smartphone</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Mantenimiento preventivo de DVR y redes</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-gradient-to-r from-brandNavy via-brandBlue to-brandSlate text-white py-16 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-3xl sm:text-4xl font-black mb-4 tracking-tight">¿Listo para comenzar tu obra o remodelación?</h3>
-            <p class="text-gray-300 mb-8 text-base sm:text-lg">Envíanos un mensaje por WhatsApp. Revisamos tu proyecto y te damos presupuesto sin compromiso.</p>
-            <a href="https://wa.me/50370021320?text=Hola%20Henri,%20vi%20tu%20Landing%20Page%20y%20deseo%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n/remodelaci%C3%B3n." 
+    <!-- Direct WhatsApp Banner CTA -->
+    <section class="py-16 px-4 max-w-5xl mx-auto w-full">
+        <div class="rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-700 p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-9xl pointer-events-none">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">¿Tienes un proyecto en mente?</h2>
+            <p class="text-emerald-100 max-w-2xl mx-auto text-sm sm:text-base mb-8">
+                Envíanos las medidas o detalles de tu obra y te brindaremos un presupuesto personalizado sin compromiso.
+            </p>
+            <a href="https://wa.me/50300000000?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20un%20presupuesto" 
                target="_blank"
-               rel="noopener noreferrer"
-               class="inline-flex items-center space-x-3 bg-whatsapp hover:bg-whatsappHover text-white font-extrabold text-lg px-8 py-4 rounded-full shadow-2xl transition transform hover:scale-105">
-                <i class="fab fa-whatsapp text-2xl"></i>
-                <span>Enviar mensaje a WhatsApp (+503 7002 1320)</span>
+               class="inline-flex items-center gap-3 bg-slate-950 hover:bg-slate-900 text-white font-bold px-8 py-4 rounded-2xl shadow-lg transition-all duration-300 hover:scale-105">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-2xl"></i>
+                <span>Enviar mensaje por WhatsApp</span>
             </a>
         </div>
     </section>
 
-    <footer class="bg-gray-950 text-gray-400 py-8 px-4 text-center text-xs border-t border-gray-800">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 Henri Gonzalez: Construcción & Renovación. San Salvador, El Salvador.</p>
-            <p class="text-gray-500">Desarrollo Tecnológico y Marketing por <span class="font-semibold text-gray-400">M&G Solutions</span></p>
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 bg-slate-950/80">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+            <p>© 2026 PRO-CONSTRUC - Servicios Profesionales de Construcción y Seguridad. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <a href="https://wa.me/50370021320?text=Hola%20Henri,%20vi%20tu%20Landing%20Page%20y%20deseo%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n/remodelaci%C3%B3n." 
-       target="_blank" 
-       rel="noopener noreferrer"
-       title="Escribir por WhatsApp"
-       class="fixed bottom-6 right-6 bg-whatsapp hover:bg-whatsappHover text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 transition transform hover:scale-110 pulse-whatsapp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
